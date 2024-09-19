@@ -1,0 +1,213 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212; /* Fondo negro */
+    color: #e0e0e0; /* Texto gris claro */
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Encabezado */
+h1 {
+    text-align: center;
+    color: #d5cd2a;
+    font-size: 42px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #d5cd2a;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+/* Animación para el encabezado */
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contenedor de los ejercicios en formato grid */
+.exercise-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Caja de cada ejercicio */
+.exercise-box {
+    background-color: #1f1f1f; /* Fondo gris oscuro */
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6); /* Más sombra */
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.exercise-box:hover {
+    transform: translateY(-10px); /* Animación de flotación */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); /* Sombra al hacer hover */
+}
+
+/* Estilo de los botones */
+button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0;
+    border: none;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    background: linear-gradient(145deg, #2196f3, #21cbf3); /* Degradado azul */
+    box-shadow: 0 10px 20px rgba(33, 203, 243, 0.4);
+    transition: background 0.4s ease, transform 0.3s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: width 0.5s ease, height 0.5s ease, top 0.5s ease, left 0.5s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button:hover:before {
+    width: 0;
+    height: 0;
+}
+
+button:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(33, 203, 243, 0.6);
+    background: linear-gradient(145deg, #21cbf3, #2196f3); /* Degradado inverso */
+}
+
+/* Animación para los botones */
+@keyframes buttonPop {
+    0% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Estilo de las descripciones */
+.description {
+    background-color: #2e2e2e; /* Fondo gris medio para descripción */
+    padding: 15px;
+    border-left: 5px solid #0a68bb;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #bbbbbb; /* Texto gris claro */
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.description:hover {
+    background-color: #373737; /* Fondo más oscuro al hacer hover */
+    border-left: 5px solid #21cbf3; /* Cambio de color en hover */
+}
+
+/* Estilo del pie de página */
+footer {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    border-top: 2px solid #373737;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Animación de entrada */
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Media Queries para pantallas más grandes de 1200px */
+@media (min-width: 1200px) {
+    body {
+        /* Aumentamos el tamaño del texto para que sea más cómodo de leer en pantallas grandes */
+        font-size: 20px;
+    }
+
+    header {
+        /* Añadimos más espacio alrededor del contenido */
+        padding: 30px 10%;
+    }
+
+    main {
+        /* Aumentamos el padding para que el contenido no se vea tan comprimido */
+        padding: 40px 10%;
+    }
+
+    button {
+        /* Botones más grandes en pantallas amplias */
+        padding: 20px 40px;
+        font-size: 18px;
+        border-radius: 10px;
+    }
+
+    /* Ajustamos el ancho de los contenedores principales */
+    .container {
+        max-width: 1400px;
+        margin: 0 auto; /* Centramos el contenido */
+    }
+
+    /* Ajustes adicionales para secciones */
+    section {
+        padding: 50px 8%; /* Añadimos más espacio a las secciones */
+    }
+
+    footer {
+        /* Aumentamos el padding del footer */
+        padding: 20px 10%;
+    }
+}
+
+
+/* Estilo responsive para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .exercise-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    button {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}
